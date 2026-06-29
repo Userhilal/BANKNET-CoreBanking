@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.VirementTiersController" style="-fx-background-color: #f5f5f5;">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <center>
+        <VBox alignment="CENTER" spacing="20" styleClass="panel" style="-fx-min-width: 450px;">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+            
+            <Label fx:id="titleLabel" text="Virement vers Tiers" styleClass="label-title"/>
+            <Label fx:id="subtitleLabel" text="Envoyer de l'argent vers un autre client de la banque" styleClass="label-subtitle" style="-fx-text-alignment: center;" wrapText="true"/>
+            
+            <VBox spacing="15" style="-fx-min-width: 100%;">
+                <Label fx:id="sourceAccountLabel" text="Votre Compte Source" styleClass="label" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="compteSourceCombo" style="-fx-min-width: 100%;" promptText="Sélectionnez votre compte"/>
+                
+                <Label fx:id="destAccountLabel" text="Sélectionner le client destinataire" styleClass="label" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="clientDestCombo" style="-fx-min-width: 100%;" promptText="Sélectionnez un client"/>
+                <Label fx:id="compteDestInfoLabel" text="Compte sélectionné : " styleClass="label-subtitle" visible="false" managed="false"/>
+                
+                <Label fx:id="amountLabel" text="Montant (MAD)" styleClass="label" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="montantField" promptText="0.00"/>
+                
+                <Label fx:id="labelLabel" text="Libellé (optionnel)" styleClass="label" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="libelleField" promptText="Ex: Paiement facture"/>
+                
+                <Label fx:id="soldeSourceLabel" styleClass="label-subtitle"/>
+                <Label fx:id="destInfoLabel" styleClass="label-subtitle" style="-fx-text-fill: #1565c0;"/>
+                
+                <Label fx:id="errorLabel" styleClass="error-message" visible="false" managed="false" wrapText="true"/>
+                <Label fx:id="successLabel" styleClass="success-message" visible="false" managed="false" wrapText="true"/>
+                
+                <HBox spacing="10">
+                    <Button fx:id="transferButton" text="Effectuer le virement" onAction="#handleVirement" style="-fx-min-width: 150px;"/>
+                    <Button fx:id="cancelButton" text="Annuler" onAction="#handleCancel" styleClass="button-secondary" style="-fx-min-width: 150px;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

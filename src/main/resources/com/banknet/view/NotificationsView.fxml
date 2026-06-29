@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.NotificationsController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15px;">
+            <Label fx:id="headerLabel" text="🔔 Centre de notifications" styleClass="header-label" style="-fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="refreshButton" text="🔄 Actualiser" onAction="#handleRefresh" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px;"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" styleClass="panel" style="-fx-padding: 20px;">
+            <Label fx:id="titleLabel" text="Vos notifications" styleClass="label-title"/>
+            
+            <ListView fx:id="notificationsList" style="-fx-max-height: 450px;" styleClass="list-view"/>
+            
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Label fx:id="countLabel" text="0 notification(s)" styleClass="label-subtitle"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="markAllReadButton" text="Tout marquer comme lu" onAction="#handleMarkAllRead" style="-fx-min-width: 180px;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+
+
+

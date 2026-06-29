@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.LoginController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 15px;">
+            <Button fx:id="menuButton" text="☰" onAction="#handleMenuToggle" styleClass="menu-button" style="-fx-background-color: transparent; -fx-text-fill: #0A1931; -fx-font-size: 24px; -fx-padding: 5px 10px; -fx-min-width: 40px; -fx-pref-width: 40px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox alignment="CENTER" spacing="30" styleClass="login-container">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+            
+            <!-- Logo/Titre -->
+            <VBox alignment="CENTER" spacing="10">
+                <HBox alignment="CENTER" spacing="15">
+                    <Label text="🏦" style="-fx-font-size: 48px; -fx-padding: 0px;"/>
+                    <Label fx:id="titleLabel" text="BANKNET" styleClass="label-title" style="-fx-font-size: 36px; -fx-font-weight: 700;"/>
+                </HBox>
+                <Label fx:id="welcomeLabel" text="Bienvenue dans votre espace bancaire" styleClass="label-subtitle"/>
+            </VBox>
+            
+            <!-- Formulaire de connexion -->
+            <VBox spacing="20" style="-fx-min-width: 350px;">
+                <Label fx:id="usernameLabel" text="Identifiant" styleClass="label" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="loginField" promptText="Entrez votre identifiant"/>
+                
+                <Label fx:id="passwordLabel" text="Mot de passe" styleClass="label" style="-fx-font-weight: bold;"/>
+                <HBox spacing="5" alignment="CENTER_LEFT">
+                    <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" promptText="Entrez votre mot de passe" onAction="#handleLogin"/>
+                    <TextField fx:id="passwordVisibleField" HBox.hgrow="ALWAYS" promptText="Entrez votre mot de passe" onAction="#handleLogin" visible="false" managed="false"/>
+                    <Button fx:id="togglePasswordButton" text="👁" onAction="#handleTogglePassword" styleClass="toggle-password-button" style="-fx-background-color: transparent; -fx-text-fill: #6B7280; -fx-padding: 8px 12px; -fx-min-width: 40px; -fx-cursor: hand;"/>
+                </HBox>
+                
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <CheckBox fx:id="rememberMeCheckbox"/>
+                    <Label fx:id="rememberMeLabel" text="Se souvenir de moi" styleClass="label" style="-fx-font-size: 13px;"/>
+                </HBox>
+                
+                <Label fx:id="errorLabel" styleClass="error-message" visible="false" managed="false"/>
+                
+                <Button fx:id="loginButton" text="Se connecter" onAction="#handleLogin" style="-fx-min-width: 100%;"/>
+            </VBox>
+        </VBox>
+    </center>
+    
+</BorderPane>

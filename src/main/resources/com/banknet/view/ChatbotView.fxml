@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.ChatbotController" style="-fx-background-color: #f5f5f5;">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15px;">
+            <Label text="🤖 Chatbot bancaire" styleClass="header-label" style="-fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" styleClass="panel" style="-fx-padding: 20px;">
+            <Label text="Bonjour ! Je suis votre assistant bancaire. Comment puis-je vous aider ?" styleClass="label-subtitle" wrapText="true"/>
+            
+            <ScrollPane fx:id="chatScrollPane" fitToWidth="true" style="-fx-background-color: white; -fx-border-color: #E5E7EB; -fx-border-radius: 12px;" vvalue="1.0">
+                <VBox fx:id="chatContainer" spacing="10" style="-fx-padding: 15px; -fx-min-width: 100%;"/>
+            </ScrollPane>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="questionField" promptText="Tapez votre question..." HBox.hgrow="ALWAYS" onAction="#handleSendQuestion"/>
+                <Button fx:id="sendButton" text="Envoyer" onAction="#handleSendQuestion" style="-fx-min-width: 100px;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+
+
+
+

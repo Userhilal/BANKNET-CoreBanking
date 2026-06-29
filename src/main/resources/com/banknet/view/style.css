@@ -1,0 +1,762 @@
+/* BANKNET - Design Fintech Moderne (Style Revolut/N26) */
+
+/* ============================================
+   VARIABLES GLOBALES
+   ============================================ */
+.root {
+    -fx-font-family: 'Segoe UI', 'Roboto', 'Open Sans', system-ui, sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #F4F6F8;
+}
+
+/* ============================================
+   COULEURS PRINCIPALES
+   ============================================ */
+.primary-color {
+    -fx-background-color: #0A1931;
+}
+
+.secondary-color {
+    -fx-background-color: #ffffff;
+}
+
+.accent-color {
+    -fx-background-color: #0056D2;
+}
+
+/* ============================================
+   BOUTONS FIN TECH MODERNES
+   ============================================ */
+.button {
+    -fx-background-color: #0056D2;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-padding: 14px 32px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.25), 8, 0, 0, 3);
+    -fx-border-width: 0;
+}
+
+.button:hover {
+    -fx-background-color: #0049B8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.35), 12, 0, 0, 4);
+}
+
+.button:pressed {
+    -fx-background-color: #003C9F;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.2), 6, 0, 0, 2);
+}
+
+.button:disabled {
+    -fx-background-color: #E5E7EB;
+    -fx-text-fill: #9CA3AF;
+    -fx-cursor: default;
+    -fx-effect: none;
+}
+
+/* Boutons secondaires avec bordure */
+.button-secondary {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0A1931;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 6, 0, 0, 2);
+}
+
+.button-secondary:hover {
+    -fx-background-color: #F9FAFB;
+    -fx-border-color: #D1D5DB;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0, 0, 3);
+}
+
+/* ============================================
+   CHAMPS DE TEXTE MODERNES
+   ============================================ */
+.text-field, .password-field, .combo-box, .date-picker {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-padding: 14px 18px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1F2937;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 4, 0, 0, 1);
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #0056D2;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.2), 10, 0, 0, 3);
+    -fx-background-color: #ffffff;
+}
+
+.text-field:hover, .password-field:hover {
+    -fx-border-color: #D1D5DB;
+    -fx-background-color: #ffffff;
+}
+
+/* ============================================
+   LABELS TYPOGRAPHIE MODERNE
+   ============================================ */
+.label {
+    -fx-text-fill: #1F2937;
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+}
+
+.label-title {
+    -fx-text-fill: #0A1931;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+.label-subtitle {
+    -fx-text-fill: #6B7280;
+    -fx-font-size: 13px;
+    -fx-font-weight: 400;
+}
+
+/* ============================================
+   CARTES FIN TECH MODERNISÉES (Style Premium avec Couleurs)
+   ============================================ */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 20, 0, 0, 4);
+    -fx-padding: 28px 32px;
+    -fx-min-height: 140px;
+    -fx-pref-height: 140px;
+    -fx-max-height: 140px;
+    -fx-cursor: hand;
+}
+
+.card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 28, 0, 0, 8);
+    -fx-translate-y: -4px;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Carte Solde Total - Style Premium avec accent orange vif */
+.card.card-total {
+    -fx-background-color: linear-gradient(135deg, #ffffff 0%, #FEF3F2 100%);
+    -fx-border-color: #F97316;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(249, 115, 22, 0.15), 20, 0, 0, 4);
+}
+
+.card.card-total:hover {
+    -fx-border-color: #EA580C;
+    -fx-background-color: linear-gradient(135deg, #ffffff 0%, #FFEDD5 100%);
+    -fx-effect: dropshadow(gaussian, rgba(249, 115, 22, 0.25), 28, 0, 0, 8);
+}
+
+/* Carte Compte Courant - Style Premium avec accent vert vif */
+.card.card-courant {
+    -fx-background-color: linear-gradient(135deg, #ffffff 0%, #ECFDF5 100%);
+    -fx-border-color: #10B981;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.15), 20, 0, 0, 4);
+}
+
+.card.card-courant:hover {
+    -fx-border-color: #059669;
+    -fx-background-color: linear-gradient(135deg, #ffffff 0%, #D1FAE5 100%);
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.25), 28, 0, 0, 8);
+}
+
+/* Carte Compte Épargne - Style Premium avec accent bleu vif */
+.card.card-epargne {
+    -fx-background-color: linear-gradient(135deg, #ffffff 0%, #EFF6FF 100%);
+    -fx-border-color: #3B82F6;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.15), 20, 0, 0, 4);
+}
+
+.card.card-epargne:hover {
+    -fx-border-color: #2563EB;
+    -fx-background-color: linear-gradient(135deg, #ffffff 0%, #DBEAFE 100%);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.25), 28, 0, 0, 8);
+}
+
+.card-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #6B7280;
+    -fx-letter-spacing: 0.5px;
+    -fx-text-transform: uppercase;
+}
+
+.card-value {
+    -fx-font-size: 36px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -1px;
+    -fx-font-family: 'Segoe UI', 'Roboto', 'Open Sans', system-ui, sans-serif;
+}
+
+/* Couleurs des montants selon le type de carte */
+.card.card-total .card-value {
+    -fx-text-fill: #F97316;
+    -fx-effect: dropshadow(gaussian, rgba(249, 115, 22, 0.2), 0, 0, 0, 1);
+}
+
+.card.card-courant .card-value {
+    -fx-text-fill: #059669;
+    -fx-effect: dropshadow(gaussian, rgba(5, 150, 105, 0.15), 0, 0, 0, 1);
+}
+
+.card.card-epargne .card-value {
+    -fx-text-fill: #2563EB;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.15), 0, 0, 0, 1);
+}
+
+/* Compatibilité avec les anciennes classes */
+.card-value-total {
+    -fx-text-fill: #F97316;
+    -fx-effect: dropshadow(gaussian, rgba(249, 115, 22, 0.2), 0, 0, 0, 1);
+}
+
+.card-value-courant {
+    -fx-text-fill: #059669;
+    -fx-effect: dropshadow(gaussian, rgba(5, 150, 105, 0.15), 0, 0, 0, 1);
+}
+
+.card-value-epargne {
+    -fx-text-fill: #2563EB;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.15), 0, 0, 0, 1);
+}
+
+/* ============================================
+   TABLEVIEW MODERNE
+   ============================================ */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 12, 0, 0, 3);
+}
+
+.table-view .column-header {
+    -fx-background-color: #F9FAFB;
+    -fx-text-fill: #374151;
+    -fx-font-weight: 600;
+    -fx-font-size: 12px;
+    -fx-padding: 14px 12px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-radius: 12px 12px 0 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-min-height: 55px;
+    -fx-pref-height: 55px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #FAFBFC;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #EBF4FF;
+}
+
+.table-view .table-cell {
+    -fx-border-color: #F3F4F6;
+    -fx-padding: 16px 24px;
+    -fx-text-fill: #1F2937;
+    -fx-font-size: 16px;
+    -fx-font-weight: 500;
+    -fx-text-alignment: left;
+}
+
+/* ============================================
+   PANNEAUX MODERNES
+   ============================================ */
+.panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 20, 0, 0, 5);
+    -fx-padding: 24px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* ============================================
+   CONTAINERS
+   ============================================ */
+.main-container {
+    -fx-background-color: #F4F6F8;
+    -fx-padding: 20px;
+    -fx-min-width: 1200px;
+}
+
+.login-container {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 24, 0, 0, 8);
+    -fx-padding: 48px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* ============================================
+   HEADER FIN TECH
+   ============================================ */
+.header {
+    -fx-background-color: #0A1931;
+    -fx-padding: 18px 28px;
+    -fx-effect: dropshadow(gaussian, rgba(10, 25, 49, 0.3), 12, 0, 0, 4);
+}
+
+.header-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.3px;
+}
+
+/* ============================================
+   MESSAGES (Erreur/Succès)
+   ============================================ */
+.error-message {
+    -fx-text-fill: #DC2626;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-background-color: #FEF2F2;
+    -fx-background-radius: 10px;
+    -fx-padding: 12px 16px;
+    -fx-border-color: #FECACA;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+}
+
+.success-message {
+    -fx-text-fill: #059669;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-background-color: #ECFDF5;
+    -fx-background-radius: 10px;
+    -fx-padding: 12px 16px;
+    -fx-border-color: #A7F3D0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+}
+
+/* ============================================
+   SCROLLBAR MODERNE
+   ============================================ */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #D1D5DB;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #9CA3AF;
+}
+
+/* ============================================
+   COMBOBOX MODERNE
+   ============================================ */
+.combo-box .list-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 16, 0, 0, 6);
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 10px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1F2937;
+    -fx-padding: 12px 18px;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #F9FAFB;
+}
+
+.combo-box .list-cell:selected {
+    -fx-background-color: #EBF4FF;
+    -fx-text-fill: #0056D2;
+}
+
+/* ============================================
+   CHARTS MODERNES
+   ============================================ */
+.chart {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-padding: 20px;
+}
+
+.chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart .chart-horizontal-grid-lines {
+    -fx-stroke: #E5E7EB;
+    -fx-stroke-width: 0.5px;
+}
+
+.chart .chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart .axis {
+    -fx-tick-label-fill: #6B7280;
+    -fx-tick-length: 5px;
+    -fx-minor-tick-length: 0px;
+}
+
+.chart .axis-label {
+    -fx-text-fill: #374151;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+.chart .default-color0.chart-series-line {
+    -fx-stroke: #0056D2;
+    -fx-stroke-width: 2.5px;
+}
+
+.chart .default-color0.chart-line-symbol {
+    -fx-background-color: #0056D2, white;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px;
+}
+
+.chart-title {
+    -fx-text-fill: #0A1931;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* ============================================
+   FINANCE AREA CHART (Style CIH Bank Premium)
+   ============================================ */
+.finance-area-chart {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.finance-area-chart .chart-content {
+    -fx-background-color: transparent;
+}
+
+.finance-area-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* Dégradé Orange CIH vers bleu nuit transparent pour la zone remplie */
+.finance-area-chart .default-color0.chart-series-area-fill {
+    -fx-fill: linear-gradient(from 0% 0% to 0% 100%, #FF6B00 0%, #FF8533 15%, #E65C00 30%, #0A1931 70%, #0A1931 100%);
+    -fx-opacity: 0.75;
+}
+
+/* Ligne orange vif épaisse (3px) */
+.finance-area-chart .default-color0.chart-series-area-line {
+    -fx-stroke: #FF6B00;
+    -fx-stroke-width: 3px;
+}
+
+/* Symboles petits et élégants */
+.finance-area-chart .default-color0.chart-area-symbol {
+    -fx-background-color: #FF6B00;
+    -fx-background-radius: 3px;
+    -fx-padding: 3px;
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+.finance-area-chart .default-color0.chart-area-symbol:hover {
+    -fx-background-color: #E65C00;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+/* Axes avec police moderne */
+.finance-area-chart .axis {
+    -fx-tick-label-fill: #6B7280;
+    -fx-tick-label-font: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+    -fx-tick-label-font-size: 12px;
+    -fx-tick-length: 5px;
+    -fx-minor-tick-length: 0px;
+}
+
+.finance-area-chart .axis-label {
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+}
+
+/* Légende moderne */
+.finance-area-chart .chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 0 0 0;
+}
+
+.finance-area-chart .chart-legend-item {
+    -fx-text-fill: #374151;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+}
+
+/* ============================================
+   BOUTONS VIREMENT
+   ============================================ */
+.button-transfer {
+    -fx-background-color: #0056D2;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-padding: 12px 24px;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.3), 10, 0, 0, 4);
+}
+
+.button-transfer:hover {
+    -fx-background-color: #0049B8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.4), 14, 0, 0, 5);
+    -fx-translate-y: -1px;
+}
+
+.button-transfer:pressed {
+    -fx-background-color: #003C9F;
+    -fx-translate-y: 0px;
+}
+
+/* ============================================
+   FILTRES MODERNES
+   ============================================ */
+.filter-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #374151;
+}
+
+.filter-datepicker {
+    -fx-min-width: 140px;
+    -fx-pref-width: 140px;
+    -fx-pref-height: 38px;
+}
+
+.filter-textfield {
+    -fx-min-width: 100px;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 38px;
+}
+
+.button-filter {
+    -fx-background-color: #0056D2;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.25), 8, 0, 0, 3);
+}
+
+.button-filter:hover {
+    -fx-background-color: #0049B8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 86, 210, 0.35), 12, 0, 0, 4);
+}
+
+/* ============================================
+   TABLEAU TRANSACTIONS (Améliorations)
+   ============================================ */
+.table-view .table-cell.transaction-credit {
+    -fx-text-fill: #059669;
+    -fx-font-weight: 600;
+}
+
+.table-view .table-cell.transaction-debit {
+    -fx-text-fill: #DC2626;
+    -fx-font-weight: 600;
+}
+
+.table-view .table-cell.transaction-amount-credit {
+    -fx-text-fill: #059669;
+    -fx-font-weight: 600;
+}
+
+.table-view .table-cell.transaction-amount-debit {
+    -fx-text-fill: #DC2626;
+    -fx-font-weight: 600;
+}
+
+/* ============================================
+   MENU BUTTON
+   ============================================ */
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 24px;
+    -fx-text-fill: #0A1931;
+}
+
+.menu-button:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 8px;
+}
+
+/* ============================================
+   TOGGLE PASSWORD BUTTON
+   ============================================ */
+.toggle-password-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
+}
+
+.toggle-password-button:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 6px;
+}
+
+/* ============================================
+   CONTEXT MENU
+   ============================================ */
+.context-menu {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 12, 0, 0, 4);
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+}
+
+.context-menu .menu-item {
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+.context-menu .menu-item .label {
+    -fx-text-fill: #1F2937;
+    -fx-font-size: 14px;
+}
+
+/* ============================================
+   CHECKBOX
+   ============================================ */
+.check-box {
+    -fx-text-fill: #1F2937;
+    -fx-font-size: 13px;
+}
+
+.check-box .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #0056D2;
+    -fx-border-color: #0056D2;
+}
+
+.check-box .mark {
+    -fx-background-color: #ffffff;
+}
+
+/* ============================================
+   SPACING & LAYOUT
+   ============================================ */
+.vbox, .hbox {
+    -fx-spacing: 16px;
+}
+
+/* ============================================
+   BOUTON NOTIFICATIONS (Icône Sonnerie)
+   ============================================ */
+.notification-bell-button {
+    -fx-background-color: #2C3E50;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+    -fx-min-width: 44px;
+    -fx-min-height: 44px;
+    -fx-pref-width: 44px;
+    -fx-pref-height: 44px;
+    -fx-max-width: 44px;
+    -fx-max-height: 44px;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 2);
+}
+
+.notification-bell-button:hover {
+    -fx-background-color: #34495E;
+    -fx-border-color: rgba(255, 255, 255, 0.5);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0, 0, 3);
+}
+
+.notification-bell-button:pressed {
+    -fx-background-color: #1A252F;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
+}
+
+.notification-badge {
+    -fx-background-color: #DC2626;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 2px 6px;
+    -fx-min-width: 18px;
+    -fx-pref-width: 18px;
+    -fx-min-height: 18px;
+    -fx-pref-height: 18px;
+    -fx-alignment: center;
+    -fx-translate-x: 8px;
+    -fx-translate-y: -8px;
+}

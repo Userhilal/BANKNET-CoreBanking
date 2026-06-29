@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.ContactController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 12px 15px;">
+            <Label fx:id="titleLabel" text="Nous contacter" styleClass="header-label" style="-fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="closeButton" text="Fermer" onAction="#handleClose" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px; -fx-font-size: 12px;"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox alignment="CENTER" spacing="30" styleClass="login-container" style="-fx-padding: 40px;">
+            <Label text="📞" style="-fx-font-size: 48px;"/>
+            <Label fx:id="subtitleLabel" text="Contactez notre équipe" styleClass="label-title"/>
+            
+            <VBox spacing="25" alignment="CENTER" style="-fx-min-width: 400px;">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="📧" style="-fx-font-size: 24px;"/>
+                    <VBox spacing="5">
+                        <Label fx:id="emailLabel" text="Email:" styleClass="label" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="emailValueLabel" text="BankNetMaroc@gmail.ma" styleClass="label" style="-fx-font-size: 16px; -fx-text-fill: #0056D2;"/>
+                    </VBox>
+                </HBox>
+                
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="📱" style="-fx-font-size: 24px;"/>
+                    <VBox spacing="5">
+                        <Label fx:id="phoneLabel" text="Téléphone:" styleClass="label" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="phoneValueLabel" text="0522707008" styleClass="label" style="-fx-font-size: 16px; -fx-text-fill: #0056D2;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+            <Button fx:id="closeButtonBottom" text="Fermer" onAction="#handleClose" style="-fx-min-width: 150px; -fx-pref-width: 150px;"/>
+        </VBox>
+    </center>
+</BorderPane>
+
+
+
+

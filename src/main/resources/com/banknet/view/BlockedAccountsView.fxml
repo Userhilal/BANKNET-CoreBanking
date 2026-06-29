@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.BlockedAccountsController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15px;">
+            <Label fx:id="headerLabel" text="🔒 Comptes bloqués" styleClass="header-label" style="-fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="refreshButton" text="🔄 Actualiser" onAction="#handleRefresh" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px;"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" styleClass="panel" style="-fx-padding: 20px;">
+            <Label fx:id="subtitleLabel" text="Liste des comptes bloqués (après 3 tentatives de connexion échouées)" styleClass="label-subtitle" style="-fx-font-size: 13px;"/>
+            
+            <TableView fx:id="blockedAccountsTable" style="-fx-max-height: 400px;">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" minWidth="50" prefWidth="60"/>
+                    <TableColumn fx:id="loginColumn" text="Login" minWidth="100" prefWidth="150"/>
+                    <TableColumn fx:id="roleColumn" text="Rôle" minWidth="80" prefWidth="100"/>
+                    <TableColumn fx:id="clientColumn" text="Client" minWidth="150" prefWidth="200"/>
+                    <TableColumn fx:id="failedAttemptsColumn" text="Tentatives échouées" minWidth="100" prefWidth="120"/>
+                    <TableColumn fx:id="statusColumn" text="Statut" minWidth="80" prefWidth="100"/>
+                    <TableColumn fx:id="actionsColumn" text="Actions" minWidth="150" prefWidth="200"/>
+                </columns>
+            </TableView>
+            
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Label fx:id="countLabel" text="0 compte(s) bloqué(s)" styleClass="label-subtitle"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="unblockButton" text="Débloquer le compte sélectionné" onAction="#handleUnblock" style="-fx-min-width: 200px;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+
+
+

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.DashboardClientController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 12px 15px;">
+            <Label fx:id="headerTitleLabel" text="🏦 BANKNET - Espace Client" styleClass="header-label" style="-fx-font-size: 16px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <StackPane>
+                <Button fx:id="notificationsButton" text="🔔" onAction="#handleNotifications" styleClass="notification-bell-button"/>
+                <Label fx:id="notificationBadge" styleClass="notification-badge" text="" visible="false" StackPane.alignment="TOP_RIGHT"/>
+            </StackPane>
+            <Label fx:id="userLabel" styleClass="header-label" style="-fx-font-size: 12px;"/>
+            <Button fx:id="logoutButton" text="Déconnexion" onAction="#handleLogout" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px; -fx-font-size: 12px;"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: #f5f5f5;" vbarPolicy="AS_NEEDED" fitToHeight="true" hbarPolicy="NEVER" pannable="true">
+            <VBox spacing="6" styleClass="main-container" style="-fx-min-width: 1200px;">
+                <padding>
+                    <Insets top="6" right="6" bottom="6" left="6"/>
+                </padding>
+                
+                <!-- Cartes de solde -->
+                <GridPane hgap="12" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250"/>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250"/>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250"/>
+                    </columnConstraints>
+                    
+                    <VBox styleClass="card card-total" spacing="12" GridPane.columnIndex="0">
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="💰" style="-fx-font-size: 32px; -fx-opacity: 0.9;"/>
+                            <VBox spacing="4" alignment="CENTER_LEFT">
+                                <Label fx:id="soldeTotalTitleLabel" text="Solde Total" styleClass="card-title"/>
+                                <Label fx:id="soldeTotalLabel" text="0.00 MAD" styleClass="card-value"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    
+                    <VBox styleClass="card card-courant" spacing="12" GridPane.columnIndex="1">
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="💳" style="-fx-font-size: 32px; -fx-opacity: 0.9;"/>
+                            <VBox spacing="4" alignment="CENTER_LEFT">
+                                <Label fx:id="soldeCourantTitleLabel" text="Compte Courant" styleClass="card-title"/>
+                                <Label fx:id="soldeCourantLabel" text="0.00 MAD" styleClass="card-value"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    
+                    <VBox styleClass="card card-epargne" spacing="12" GridPane.columnIndex="2">
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label text="🏦" style="-fx-font-size: 32px; -fx-opacity: 0.9;"/>
+                            <VBox spacing="4" alignment="CENTER_LEFT">
+                                <Label fx:id="soldeEpargneTitleLabel" text="Compte Épargne" styleClass="card-title"/>
+                                <Label fx:id="soldeEpargneLabel" text="0.00 MAD" styleClass="card-value"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </GridPane>
+                
+                <!-- Graphique d'évolution des Finances -->
+                <VBox styleClass="panel" spacing="10">
+                    <Label fx:id="evolutionTitleLabel" text="Évolution des Finances" styleClass="label-title"/>
+                    <AreaChart fx:id="financeChart" styleClass="finance-area-chart" style="-fx-background-color: transparent;" prefHeight="300" minHeight="250">
+                        <xAxis>
+                            <CategoryAxis fx:id="dateAxis"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="amountAxis"/>
+                        </yAxis>
+                    </AreaChart>
+                </VBox>
+                
+                <!-- Actions - Virements -->
+                <VBox spacing="12" styleClass="panel">
+                    <Label fx:id="transferTitleLabel" text="Effectuer un Virement" styleClass="label-title"/>
+                    
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button fx:id="internalTransferButton" text="🔄 Virement Interne" onAction="#handleVirementInterne" styleClass="button-transfer" style="-fx-min-width: 200px; -fx-pref-width: 200px; -fx-pref-height: 45px; -fx-font-size: 15px;"/>
+                        <Button fx:id="externalTransferButton" text="💸 Virement vers Tiers" onAction="#handleVirementTiers" styleClass="button-transfer" style="-fx-min-width: 210px; -fx-pref-width: 210px; -fx-pref-height: 45px; -fx-font-size: 15px;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="refreshButton" text="🔄 Actualiser" onAction="#handleRefresh" styleClass="button-secondary" style="-fx-min-width: 150px; -fx-pref-width: 150px; -fx-pref-height: 45px;"/>
+                        <Button fx:id="exportButton" text="📥 Exporter CSV" onAction="#handleExportCSV" styleClass="button-secondary" style="-fx-min-width: 160px; -fx-pref-width: 160px; -fx-pref-height: 45px;"/>
+                    </HBox>
+                </VBox>
+                
+                <!-- Section Services et Paramètres -->
+                <VBox spacing="12" styleClass="panel">
+                    <Label fx:id="servicesTitleLabel" text="Services et Paramètres" styleClass="label-title"/>
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button fx:id="objectifsButton" text="🎯 Objectifs" onAction="#handleObjectifs" styleClass="button-secondary" style="-fx-min-width: 150px; -fx-pref-width: 150px; -fx-pref-height: 45px;"/>
+                        <Button fx:id="messagerieButton" text="💬 Messagerie" onAction="#handleMessagerie" styleClass="button-secondary" style="-fx-min-width: 150px; -fx-pref-width: 150px; -fx-pref-height: 45px;"/>
+                        <Button fx:id="chatbotButton" text="🤖 Chatbot" onAction="#handleChatbot" styleClass="button-secondary" style="-fx-min-width: 150px; -fx-pref-width: 150px; -fx-pref-height: 45px;"/>
+                        <Button fx:id="changePasswordButton" text="🔑 Changer mot de passe" onAction="#handleChangePassword" styleClass="button-secondary" style="-fx-min-width: 180px; -fx-pref-width: 180px; -fx-pref-height: 45px;"/>
+                    </HBox>
+                </VBox>
+                
+                <!-- Filtres pour l'historique -->
+                <VBox spacing="12" styleClass="panel">
+                    <Label fx:id="filterTitleLabel" text="🔍 Filtrer l'historique" styleClass="label-title"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-alignment: CENTER_LEFT;">
+                        <Label fx:id="startDateLabel" text="Début:" styleClass="filter-label"/>
+                        <DatePicker fx:id="dateDebutPicker" styleClass="filter-datepicker" style="-fx-min-width: 140px; -fx-pref-width: 140px;"/>
+                        <Label fx:id="endDateLabel" text="Fin:" styleClass="filter-label"/>
+                        <DatePicker fx:id="dateFinPicker" styleClass="filter-datepicker" style="-fx-min-width: 140px; -fx-pref-width: 140px;"/>
+                        <Label fx:id="minAmountLabel" text="Min (MAD):" styleClass="filter-label"/>
+                        <TextField fx:id="montantMinField" promptText="0.00" styleClass="filter-textfield" style="-fx-min-width: 100px; -fx-pref-width: 100px;"/>
+                        <Label fx:id="maxAmountLabel" text="Max (MAD):" styleClass="filter-label"/>
+                        <TextField fx:id="montantMaxField" promptText="999999" styleClass="filter-textfield" style="-fx-min-width: 100px; -fx-pref-width: 100px;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="applyFilterButton" text="✓ Appliquer" onAction="#handleApplyFilters" styleClass="button-filter" style="-fx-min-width: 130px; -fx-pref-width: 130px;"/>
+                        <Button fx:id="resetFilterButton" text="↺ Réinitialiser" onAction="#handleResetFilters" styleClass="button-secondary" style="-fx-min-width: 140px; -fx-pref-width: 140px;"/>
+                    </HBox>
+                </VBox>
+                
+                <!-- Historique des transactions -->
+                <VBox spacing="5" styleClass="panel">
+                    <Label fx:id="transactionsTitleLabel" text="Historique des Transactions" styleClass="label-title"/>
+                    <TableView fx:id="transactionTable" style="-fx-pref-height: 250px; -fx-min-height: 200px; -fx-max-height: 300px;">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" minWidth="110" prefWidth="130"/>
+                            <TableColumn fx:id="typeColumn" text="Type" minWidth="70" prefWidth="80"/>
+                            <TableColumn fx:id="montantColumn" text="Montant" minWidth="90" prefWidth="100"/>
+                            <TableColumn fx:id="libelleColumn" text="Libellé" minWidth="150" prefWidth="200"/>
+                            <TableColumn fx:id="compteSourceColumn" text="Source" minWidth="100" prefWidth="120"/>
+                            <TableColumn fx:id="compteDestColumn" text="Destination" minWidth="100" prefWidth="120"/>
+                            <TableColumn fx:id="soldeApresColumn" text="Solde" minWidth="100" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

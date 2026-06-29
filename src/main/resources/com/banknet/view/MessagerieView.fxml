@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.MessagerieController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15px;">
+            <Label fx:id="headerTitleLabel" text="💬 Messagerie sécurisée" styleClass="header-label" style="-fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="newMessageButton" text="✉️ Nouveau message" onAction="#handleNewMessage" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px;"/>
+            <Button fx:id="refreshButton" text="🔄 Actualiser" onAction="#handleRefresh" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px;"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.3" style="-fx-background-color: #F4F6F8;">
+            <!-- Liste des messages -->
+            <VBox styleClass="panel" style="-fx-padding: 15px; -fx-min-width: 300px;">
+                <Label fx:id="messagesTitleLabel" text="Messages" styleClass="label-title" style="-fx-font-size: 16px;"/>
+                <ListView fx:id="messagesList" style="-fx-max-height: 550px;"/>
+            </VBox>
+            
+            <!-- Détail du message -->
+            <VBox styleClass="panel" style="-fx-padding: 20px;">
+                <VBox fx:id="messageDetailContainer" spacing="15">
+                    <Label fx:id="selectMessageLabel" text="Sélectionnez un message pour voir le détail" styleClass="label-subtitle"/>
+                </VBox>
+                
+                <VBox fx:id="replyContainer" spacing="10" style="-fx-padding: 15px 0;" visible="false" managed="false">
+                    <Separator/>
+                    <Label fx:id="replyTitleLabel" text="Répondre" styleClass="label-title" style="-fx-font-size: 14px;"/>
+                    <TextArea fx:id="replyTextArea" promptText="Tapez votre réponse..." style="-fx-min-height: 100px; -fx-pref-height: 100px;"/>
+                    <HBox spacing="10">
+                        <Button fx:id="sendReplyButton" text="Envoyer" onAction="#handleSendReply" style="-fx-min-width: 100px;"/>
+                        <Button fx:id="cancelReplyButton" text="Annuler" onAction="#handleCancelReply" styleClass="button-secondary" style="-fx-min-width: 100px;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>
+

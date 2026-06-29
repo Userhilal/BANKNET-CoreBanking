@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.ObjectifsEpargneController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15px;">
+            <Label fx:id="headerTitleLabel" text="🎯 Objectifs d'épargne" styleClass="header-label" style="-fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="addObjectifButton" text="➕ Nouvel objectif" onAction="#handleAddObjectif" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px;"/>
+            <Button fx:id="refreshButton" text="🔄 Actualiser" onAction="#handleRefresh" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1px; -fx-padding: 6px 12px;"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: #F4F6F8;">
+            <VBox spacing="15" styleClass="panel" style="-fx-padding: 20px;">
+                <Label fx:id="titleLabel" text="Vos objectifs d'épargne" styleClass="label-title"/>
+                
+                <VBox fx:id="objectifsContainer" spacing="15" style="-fx-min-width: 100%;"/>
+                
+                <Label fx:id="emptyLabel" text="Aucun objectif d'épargne défini. Cliquez sur 'Nouvel objectif' pour en créer un." styleClass="label-subtitle" visible="false"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
+

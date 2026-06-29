@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.banknet.controller.ActivationController" style="-fx-background-color: #f5f5f5;">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    
+    <center>
+        <VBox alignment="CENTER" spacing="20" styleClass="panel" style="-fx-min-width: 400px;">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+            
+            <Label fx:id="titleLabel" text="Activation de Compte Digital" styleClass="label-title"/>
+            <Label fx:id="subtitleLabel" text="Entrez votre CIN et votre ID Client pour activer votre compte" styleClass="label-subtitle" style="-fx-text-alignment: center;" wrapText="true"/>
+            
+            <VBox spacing="15" style="-fx-min-width: 100%;">
+                <Label fx:id="clientIdLabel" text="ID Client" styleClass="label" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="clientIdField" promptText="Entrez votre ID Client"/>
+                
+                <Label fx:id="cinLabel" text="CIN" styleClass="label" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="cinField" promptText="Entrez votre CIN"/>
+                
+                <Label fx:id="loginLabel" text="Identifiant (Login)" styleClass="label" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="loginField" promptText="Choisissez un identifiant"/>
+                
+                <Label fx:id="passwordLabel" text="Mot de passe" styleClass="label" style="-fx-font-weight: bold;"/>
+                <PasswordField fx:id="passwordField" promptText="Choisissez un mot de passe"/>
+                
+                <Label fx:id="confirmPasswordLabel" text="Confirmer le mot de passe" styleClass="label" style="-fx-font-weight: bold;"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirmez le mot de passe"/>
+                
+                <Label fx:id="errorLabel" styleClass="error-message" visible="false" managed="false" wrapText="true"/>
+                <Label fx:id="successLabel" styleClass="success-message" visible="false" managed="false" wrapText="true"/>
+                
+                <HBox spacing="10">
+                    <Button fx:id="activateButton" text="Activer" onAction="#handleActivation" style="-fx-min-width: 120px;"/>
+                    <Button fx:id="cancelButton" text="Annuler" onAction="#handleCancel" styleClass="button-secondary" style="-fx-min-width: 120px;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
